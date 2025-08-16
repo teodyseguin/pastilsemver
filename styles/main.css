@@ -13,6 +13,7 @@ body {
   gap: 1rem;
   width: 100%;
   min-height: 100vh;
+  margin: 0 auto;
 }
 
 /* Grid items */
@@ -40,6 +41,7 @@ body {
 /* Responsive */
 @media (max-width: 600px) {
   #menu-grid {
+    width: 960px;
     grid-template-columns: 1fr 1fr; /* still 2 columns */
     grid-template-rows: repeat(3, 1fr);
   }

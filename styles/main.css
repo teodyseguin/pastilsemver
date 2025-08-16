@@ -39,7 +39,7 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (min-width: 600px) {
   #menu-grid {
     width: 960px;
     grid-template-columns: 1fr 1fr; /* still 2 columns */
@@ -48,7 +48,7 @@ body {
 }
 
 /* Mobile adjustments */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .item img {
     width: 100%;
     height: auto;

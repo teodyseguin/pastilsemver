@@ -1,0 +1,42 @@
+/* Remove default padding/margin */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+#menu-grid {
+  display: grid;
+  /* grid-template-columns: repeat(2, 1fr); 2 columns */
+  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+  grid-template-rows: repeat(4, 1fr);    /* 4 rows */
+  width: 100vw; 
+  height: 100vh; /* Full screen */
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+  background-color: #fcbc31;
+  background-image: url('../assets/product-chicken-pastil-meal-regular.png');
+  background-size: cover;       /* Make background image fill */
+  background-position: center;   /* Center image */
+  transition: background 0.3s;
+}
+
+.menu-item:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+/* Responsive (stack items on small screens) */
+@media (max-width: 600px) {
+  #menu-grid {
+    grid-template-columns: 1fr; /* 1 column */
+    grid-template-rows: repeat(8, 1fr); /* 8 rows */
+  }
+}

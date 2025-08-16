@@ -31,18 +31,18 @@ function updateCart() {
 }
 
 // Fetch from Drupal and display
-fetchMenuItems().then(items => {
-  const content = document.getElementById('menu-grid');
-  items.forEach(item => {
-    const div = document.createElement(`div`);
-    div.classList.add(`item`, `item--${item.code}`);
-    div.innerHTML = `
-      <h3 class="item__title">${item.title}</h3>
-      <div class="item__body">${item.body}</div>
-      <div class="item__price">₱${item.price}</div>
-    `;
+// fetchMenuItems().then(items => {
+//   const content = document.getElementById('menu-grid');
+//   items.forEach(item => {
+//     const div = document.createElement(`div`);
+//     div.classList.add(`item`, `item--${item.code}`);
+//     div.innerHTML = `
+//       <h3 class="item__title">${item.title}</h3>
+//       <div class="item__body">${item.body}</div>
+//       <div class="item__price">₱${item.price}</div>
+//     `;
     
-    div.addEventListener("click", () => addToCart(item));
-    content.appendChild(div);
-  });
-});
+//     div.addEventListener("click", () => addToCart(item));
+//     content.appendChild(div);
+//   });
+// });

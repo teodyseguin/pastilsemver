@@ -19,8 +19,7 @@ body {
 
 /* Grid items */
 .item {
-  width: 470px;
-  height: 300px;
+  width: 100%;
   background-size: cover;
   background-position: center;
   border-radius: 12px;
@@ -50,7 +49,7 @@ body {
 /* Mobile adjustments */
 @media (min-width: 768px) {
   .item {
-    width: 100%;
+    width: 470px;
   }
 
   .item img {

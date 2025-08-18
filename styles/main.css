@@ -49,6 +49,10 @@ body {
 
 /* Mobile adjustments */
 @media (min-width: 768px) {
+  .item {
+    width: 100%;
+  }
+
   .item img {
     width: 100%;
     height: auto;

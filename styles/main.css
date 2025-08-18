@@ -42,7 +42,6 @@ body {
 /* Responsive */
 @media (min-width: 600px) {
   #menu-grid {
-    width: 960px;
     grid-template-columns: 1fr 1fr; /* still 2 columns */
     grid-template-rows: repeat(3, 1fr);
   }

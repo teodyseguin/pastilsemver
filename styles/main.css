@@ -48,10 +48,6 @@ body {
 
 /* Mobile adjustments */
 @media (min-width: 768px) {
-  .item {
-    width: 470px;
-  }
-
   .item img {
     width: 100%;
     height: auto;

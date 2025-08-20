@@ -46,12 +46,6 @@ h1.app-title {
   object-fit: cover; /* Make images cover each box */
 }
 
-/* Hover effect */
-.item:hover {
-  transform: scale(1.03);
-  cursor: pointer;
-}
-
 /* Responsive */
 @media (min-width: 600px) {
   #menu-grid {

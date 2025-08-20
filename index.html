@@ -10,24 +10,45 @@
 <body>
   <h1 class="app-title">Please choose from the predefined menu</h1>
   <div id="menu-grid">
-    <div class="item">
+    <div class="item" data-product="Chicken Pastil Regular with Regular Rice" data-img="assets/product-chicken-pastil-meal-regular.png">
       <img src="assets/product-chicken-pastil-meal-regular.png" alt="">
     </div>
-    <div class="item">
+    <div class="item" data-product="Chicken Pastil Lumpia with Regular Rice" data-img="assets/product-chicken-pastil-lumpia-meal.png">
       <img src="assets/product-chicken-pastil-lumpia-meal.png" alt="">
     </div>
-    <div class="item">
+    <div class="item" data-product="Chicken Pastil Only Regular" data-img="assets/product-chicken-pastil-meal-regular.png">
       <img src="assets/product-chicken-pastil-meal-regular.png" alt="">
     </div>
-    <div class="item">
+    <div class="item" data-product="" data-img="">
       <img src="assets/product-chicken-pastil-meal-regular.png" alt="">
     </div>
-    <div class="item">
+    <div class="item" data-product="" data-img="">
       <img src="assets/product-chicken-pastil-meal-regular.png" alt="">
     </div>
-    <div class="item">
+    <div class="item" data-product="" data-img="">
       <img src="assets/product-chicken-pastil-meal-regular.png" alt="">
     </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="product-modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="close-modal">&times;</span>
+      <img id="modal-img" src="" alt="">
+      <h2 id="modal-title"></h2>
+      <div class="quantity-control">
+        <button id="decrease">-</button>
+        <input type="number" id="quantity" value="1" min="1">
+        <button id="increase">+</button>
+      </div>
+      <button id="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Simple Cart Display -->
+  <div id="cart">
+    <h3>Cart</h3>
+    <ul id="cart-items"></ul>
   </div>
 
   <script type="module" src="main.js"></script>

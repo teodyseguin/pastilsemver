@@ -6,29 +6,64 @@ if ('serviceWorker' in navigator) {
     .then(() => console.log("Service Worker registered"));
 }
 
-// Cart state
+const items = document.querySelectorAll(".item");
+const modal = document.getElementById("product-modal");
+const modalImg = document.getElementById("modal-img");
+const modalTitle = document.getElementById("modal-title");
+const quantityInput = document.getElementById("quantity");
+const closeModal = document.getElementById("close-modal");
+const addToCartBtn = document.getElementById("add-to-cart");
+const cartList = document.getElementById("cart-items");
+
+let selectedProduct = {};
 let cart = [];
-const cartList = document.getElementById("cart");
-const cartTotalEl = document.getElementById("cart-total");
 
-function addToCart(item) {
-  cart.push(item);
-  updateCart();
-}
+// Open modal when item is clicked
+items.forEach(item => {
+  item.addEventListener("click", () => {
+    selectedProduct = {
+      name: item.dataset.product,
+      img: item.dataset.img
+    };
+    modalImg.src = selectedProduct.img;
+    modalTitle.textContent = selectedProduct.name;
+    quantityInput.value = 1;
+    modal.classList.remove("hidden");
+  });
+});
 
-function updateCart() {
-  cartList.innerHTML = "";
-  let total = 0;
+// Close modal
+closeModal.addEventListener("click", () => {
+  modal.classList.add("hidden");
+});
 
-  cart.forEach((item) => {
-    const li = document.createElement("li");
-    li.textContent = `${item.title} - ₱${item.price}`;
-    cartList.appendChild(li);
-    total += item.price;
+// Quantity controls
+document.getElementById("increase").addEventListener("click", () => {
+  quantityInput.value = parseInt(quantityInput.value) + 1;
+});
+document.getElementById("decrease").addEventListener("click", () => {
+  if (quantityInput.value > 1) {
+    quantityInput.value = parseInt(quantityInput.value) - 1;
+  }
+});
+
+// Add to Cart
+addToCartBtn.addEventListener("click", () => {
+  cart.push({
+    ...selectedProduct,
+    quantity: parseInt(quantityInput.value)
   });
 
-  cartTotalEl.textContent = `Total: ₱${total}`;
-}
+  // Update cart display
+  cartList.innerHTML = "";
+  cart.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = `${item.name} x ${item.quantity}`;
+    cartList.appendChild(li);
+  });
+
+  modal.classList.add("hidden");
+});
 
 // Fetch from Drupal and display
 // fetchMenuItems().then(items => {

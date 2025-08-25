@@ -12,7 +12,7 @@ h1 {
 /* Grid */
 #menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 20px;
   padding: 20px;
 }
@@ -67,6 +67,7 @@ h1 {
   top: 10px;
   right: 10px;
   font-size: 30px;
+  cursor: pointer;
 }
 .modal-content img {
   width: 120px;

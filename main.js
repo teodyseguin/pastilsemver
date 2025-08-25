@@ -14,6 +14,8 @@ const quantityInput = document.getElementById("quantity");
 const closeModal = document.getElementById("close-modal");
 const addToCartBtn = document.getElementById("add-to-cart");
 const cartList = document.getElementById("cart-items");
+const cartTitle = document.querySelector("#cart h3");
+const cartBox = document.getElementById("cart");
 
 let selectedProduct = {};
 let cart = [];
@@ -63,6 +65,14 @@ addToCartBtn.addEventListener("click", () => {
   });
 
   modal.classList.add("hidden");
+});
+
+cartTitle.addEventListener("click", () => {
+  if (cartBox.style.height === 'auto') {
+    cartBox.style.removeProperty('height');
+  } else {
+    cartBox.style.height = 'auto';
+  }
 });
 
 // Fetch from Drupal and display

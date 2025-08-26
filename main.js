@@ -108,6 +108,28 @@ cartTitle.addEventListener("click", () => {
   }
 });
 
+function getGreeting() {
+  const hour = new Date().getHours();
+
+  if (hour < 12) {
+    return "Good morning :)";
+  } else if (hour < 18) {
+    return "Good afternoon :)";
+  } else {
+    return "Good evening :)";
+  }
+}
+
+// Set greeting text
+const splash = document.getElementById("splash");
+splash.textContent = getGreeting();
+
+// Hide splash after 2 seconds
+setTimeout(() => {
+  splash.classList.add("hidden");
+  document.getElementById("content").classList.remove("hidden");
+}, 2000);
+
 // Fetch from Drupal and display
 // fetchMenuItems().then(items => {
 //   const content = document.getElementById('menu-grid');

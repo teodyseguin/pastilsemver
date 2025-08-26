@@ -10,116 +10,119 @@
   <title>My Food PWA</title>
 </head>
 <body>
-  <h1 class="app-title">Pick your meals</h1>
-  <div class="menu-grid">
-    <div class="item" 
-         data-product="Chicken Pastil Only Regular" 
-         data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-only-regular.png"
-         data-price="50">
-      <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-only-regular.png" alt="">
-    </div>
-    <div class="item" 
-         data-product="Chicken Pastil Only Spicy" 
-         data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-only-spicy.png"
-         data-price="55">
-      <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-only-spicy.png" alt="">
-    </div>
-    <div class="item" 
-         data-product="Chicken Pastil Regular with Regular Rice" 
-         data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-regular-with-regular-rice.png"
-         data-price="35"
-         data-rice="true">
-      <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-regular-with-regular-rice.png" alt="">
-    </div>
-    <div class="item" 
-         data-product="Chicken Pastil Spicy with Regular Rice" 
-         data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-spicy-with-regular-rice.png"
-         data-price="40"
-         data-rice="true">
-      <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-spicy-with-regular-rice.png" alt="">
-    </div>
-    <div class="item" 
-         data-product="Chicken Pastil Lumpia with Regular Rice" 
-         data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-with-regular-rice.png"
-         data-price="55"
-         data-rice="true">
-      <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-with-regular-rice.png" alt="">
-    </div>
-    <div class="item" 
-         data-product="Chicken Pastil with Regular Rice + Egg" 
-         data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-with-regular-rice-plus-egg.png"
-         data-price="47"
-         data-rice="true"
-         data-egg="true">
-      <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-with-regular-rice-plus-egg.png" alt="">
-    </div>
-    <div class="item"
-         data-product="Chicken Pastil Lumpia 10 pcs"
-         data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-10-pcs.png"
-         data-price="130">
-      <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-10-pcs.png" alt="">
-    </div>
-    <div class="item"
-         data-product="Chicken Pastil Sisig"
-         data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-sisig.png"
-         data-price="135">
-      <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-sisig.png" alt="">
-    </div>
-  </div>
-
-  <h2 class="app-subtitle">Pick your addons</h2>
-  <div class="menu-grid">
-    <div class="item addons" 
-         data-product="Extra Regular Rice"
-         data-price="15">Extra Regular Rice</div>
-    <div class="item addons" 
-         data-product="Extra Garlic Rice"
-         data-price="20">Extra Garlic Rice</div>
-    <div class="item addons" 
-         data-product="Extra Egg"
-         data-price="12"
-         data-egg="true">Extra Egg</div>
-    <div class="item"></div>
-  </div>
-
-  <!-- Modal -->
-  <div id="product-modal" class="modal hidden">
-    <div class="modal-content">
-      <span id="close-modal">&times;</span>
-      <img id="modal-img" src="" alt="" class="">
-      <h2 id="modal-title"></h2>
-      <div class="quantity-control">
-        <button id="decrease">-</button>
-        <input type="number" id="quantity" value="1" min="1">
-        <button id="increase">+</button>
+  <div class="splash" id="splash"></div>
+  <div id="content" class="hidden">
+    <h1 class="app-title">Pick your meals</h1>
+    <div class="menu-grid">
+      <div class="item" 
+          data-product="Chicken Pastil Only Regular" 
+          data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-only-regular.png"
+          data-price="50">
+        <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-only-regular.png" alt="">
       </div>
-
-      <!-- Rice option-->
-      <div class="rice-control hidden">
-        <h2>Rice Type</h2>
-        <select name="" id="" class="option">
-          <option value="regular-rice">Regular Rice</option>
-          <option value="garlic-rice">Garlic Rice</option>
-        </select>
+      <div class="item" 
+          data-product="Chicken Pastil Only Spicy" 
+          data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-only-spicy.png"
+          data-price="55">
+        <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-only-spicy.png" alt="">
       </div>
-
-      <!-- Egg option -->
-      <div class="egg-control hidden">
-        <h2>Egg Type</h2>
-        <select name="" id="" class="option">
-          <option value="sunny-side-up">Sunny Side Up</option>
-          <option value="scrambled">Scrambled</option>
-          <option value="hard-boiled">Hard Boiled</option>
-        </select>
+      <div class="item" 
+          data-product="Chicken Pastil Regular with Regular Rice" 
+          data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-regular-with-regular-rice.png"
+          data-price="35"
+          data-rice="true">
+        <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-regular-with-regular-rice.png" alt="">
       </div>
-      <button id="add-to-cart" class="">Add to Cart</button>
+      <div class="item" 
+          data-product="Chicken Pastil Spicy with Regular Rice" 
+          data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-spicy-with-regular-rice.png"
+          data-price="40"
+          data-rice="true">
+        <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-spicy-with-regular-rice.png" alt="">
+      </div>
+      <div class="item" 
+          data-product="Chicken Pastil Lumpia with Regular Rice" 
+          data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-with-regular-rice.png"
+          data-price="55"
+          data-rice="true">
+        <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-with-regular-rice.png" alt="">
+      </div>
+      <div class="item" 
+          data-product="Chicken Pastil with Regular Rice + Egg" 
+          data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-with-regular-rice-plus-egg.png"
+          data-price="47"
+          data-rice="true"
+          data-egg="true">
+        <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-with-regular-rice-plus-egg.png" alt="">
+      </div>
+      <div class="item"
+          data-product="Chicken Pastil Lumpia 10 pcs"
+          data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-10-pcs.png"
+          data-price="130">
+        <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-10-pcs.png" alt="">
+      </div>
+      <div class="item"
+          data-product="Chicken Pastil Sisig"
+          data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-sisig.png"
+          data-price="135">
+        <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-sisig.png" alt="">
+      </div>
     </div>
-  </div>
 
-  <!-- Simple Cart Display -->
-  <div id="cart">
-    <h3>Cart</h3>
-    <ul id="cart-items"></ul>
+    <h2 class="app-subtitle">Pick your addons</h2>
+    <div class="menu-grid">
+      <div class="item addons" 
+          data-product="Extra Regular Rice"
+          data-price="15">Extra Regular Rice</div>
+      <div class="item addons" 
+          data-product="Extra Garlic Rice"
+          data-price="20">Extra Garlic Rice</div>
+      <div class="item addons" 
+          data-product="Extra Egg"
+          data-price="12"
+          data-egg="true">Extra Egg</div>
+      <div class="item"></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="product-modal" class="modal hidden">
+      <div class="modal-content">
+        <span id="close-modal">&times;</span>
+        <img id="modal-img" src="" alt="" class="">
+        <h2 id="modal-title"></h2>
+        <div class="quantity-control">
+          <button id="decrease">-</button>
+          <input type="number" id="quantity" value="1" min="1">
+          <button id="increase">+</button>
+        </div>
+
+        <!-- Rice option-->
+        <div class="rice-control hidden">
+          <h2>Rice Type</h2>
+          <select name="" id="" class="option">
+            <option value="regular-rice">Regular Rice</option>
+            <option value="garlic-rice">Garlic Rice</option>
+          </select>
+        </div>
+
+        <!-- Egg option -->
+        <div class="egg-control hidden">
+          <h2>Egg Type</h2>
+          <select name="" id="" class="option">
+            <option value="sunny-side-up">Sunny Side Up</option>
+            <option value="scrambled">Scrambled</option>
+            <option value="hard-boiled">Hard Boiled</option>
+          </select>
+        </div>
+        <button id="add-to-cart" class="">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Simple Cart Display -->
+    <div id="cart">
+      <h3>Cart</h3>
+      <ul id="cart-items"></ul>
+    </div>
   </div>
 
   <script type="module" src="main.js"></script>

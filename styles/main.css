@@ -22,14 +22,14 @@ h2 {
 }
 
 /* Grid */
-#menu-grid {
+.menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   padding: 20px;
 }
 @media (min-width: 768px) {
-  #menu-grid {
+  .menu-grid {
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   }
 }
@@ -153,6 +153,7 @@ h2 {
 #cart h3 {
   margin: 0 0 10px 0;
   font-size: 18px;
+  cursor: pointer;
 }
 #cart-items {
   list-style: none;

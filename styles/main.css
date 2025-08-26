@@ -87,7 +87,7 @@ h2 {
   cursor: pointer;
 }
 .modal-content img {
-  width: 120px;
+  width: 200px;
   margin-bottom: 15px;
 }
 .modal-content h2 {
@@ -164,4 +164,8 @@ h2 {
   padding: 6px 0;
   border-bottom: 1px solid #eee;
   font-size: 14px;
+}
+.option {
+  padding: 5px;
+  margin-bottom: 15px;
 }

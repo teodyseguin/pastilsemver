@@ -86,23 +86,27 @@
   <div id="product-modal" class="modal hidden">
     <div class="modal-content">
       <span id="close-modal">&times;</span>
-      <img id="modal-img" src="" alt="" class="mx-auto">
+      <img id="modal-img" src="" alt="" class="">
       <h2 id="modal-title"></h2>
       <div class="quantity-control">
         <button id="decrease">-</button>
         <input type="number" id="quantity" value="1" min="1">
         <button id="increase">+</button>
       </div>
+
+      <!-- Rice option-->
       <div class="rice-control hidden">
         <h2>Rice Type</h2>
-        <select name="" id="" class="">
+        <select name="" id="" class="option">
           <option value="regular-rice">Regular Rice</option>
           <option value="garlic-rice">Garlic Rice</option>
         </select>
       </div>
+
+      <!-- Egg option -->
       <div class="egg-control hidden">
         <h2>Egg Type</h2>
-        <select name="" id="" class="">
+        <select name="" id="" class="option">
           <option value="sunny-side-up">Sunny Side Up</option>
           <option value="scrambled">Scrambled</option>
           <option value="hard-boiled">Hard Boiled</option>

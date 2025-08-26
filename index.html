@@ -7,11 +7,12 @@
   <!-- Add in <head> -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <title>My Food PWA</title>
 </head>
 <body>
   <h1 class="app-title">Pick your meals</h1>
-  <div id="menu-grid">
+  <div class="menu-grid">
     <div class="item" 
          data-product="Chicken Pastil Only Regular" 
          data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-only-regular.png"
@@ -27,25 +28,30 @@
     <div class="item" 
          data-product="Chicken Pastil Regular with Regular Rice" 
          data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-regular-with-regular-rice.png"
-         data-price="35">
+         data-price="35"
+         data-rice="true">
       <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-regular-with-regular-rice.png" alt="">
     </div>
     <div class="item" 
          data-product="Chicken Pastil Spicy with Regular Rice" 
          data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-spicy-with-regular-rice.png"
-         data-price="40">
+         data-price="40"
+         data-rice="true">
       <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-spicy-with-regular-rice.png" alt="">
     </div>
     <div class="item" 
          data-product="Chicken Pastil Lumpia with Regular Rice" 
          data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-with-regular-rice.png"
-         data-price="55">
+         data-price="55"
+         data-rice="true">
       <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-with-regular-rice.png" alt="">
     </div>
     <div class="item" 
          data-product="Chicken Pastil with Regular Rice + Egg" 
          data-img="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-with-regular-rice-plus-egg.png"
-         data-price="47">
+         data-price="47"
+         data-rice="true"
+         data-egg="true">
       <img src="https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-with-regular-rice-plus-egg.png" alt="">
     </div>
     <div class="item"
@@ -63,19 +69,47 @@
   </div>
 
   <h2 class="app-subtitle">Pick your addons</h2>
+  <div class="menu-grid">
+    <div class="item addons" 
+         data-product="Extra Regular Rice"
+         data-price="15">Extra Regular Rice</div>
+    <div class="item addons" 
+         data-product="Extra Garlic Rice"
+         data-price="20">Extra Garlic Rice</div>
+    <div class="item addons" 
+         data-product="Extra Egg"
+         data-price="12"
+         data-egg="true">Extra Egg</div>
+    <div class="item"></div>
+  </div>
 
   <!-- Modal -->
   <div id="product-modal" class="modal hidden">
     <div class="modal-content">
       <span id="close-modal">&times;</span>
-      <img id="modal-img" src="" alt="">
+      <img id="modal-img" src="" alt="" class="mx-auto">
       <h2 id="modal-title"></h2>
       <div class="quantity-control">
         <button id="decrease">-</button>
         <input type="number" id="quantity" value="1" min="1">
         <button id="increase">+</button>
       </div>
-      <button id="add-to-cart">Add to Cart</button>
+      <div class="rice-control hidden">
+        <h2>Rice Type</h2>
+        <select name="" id="" class="p-3 m-3">
+          <option value="regular-rice">Regular Rice</option>
+          <option value="garlic-rice">Garlic Rice</option>
+        </select>
+      </div>
+      <div class="egg-control hidden">
+        <h2>Egg Type</h2>
+        <select name="" id="" class="p-3 m-3">
+          <option value="sunny-side-up">Sunny Side Up</option>
+          <option value="scrambled">Scrambled</option>
+          <option value="hard-boiled">Hard Boiled</option>
+        </select>
+      </div>
+      <button id="add-to-cart" class="bg-blue-500 rounded p-3 m-3">Add to Cart</button>
     </div>
   </div>
 

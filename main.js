@@ -25,7 +25,8 @@ items.forEach(item => {
   item.addEventListener("click", () => {
     selectedProduct = {
       name: item.dataset.product,
-      img: item.dataset.img
+      img: item.dataset.img,
+      price: item.dataset.price
     };
     modalImg.src = selectedProduct.img;
     modalTitle.textContent = selectedProduct.name;
@@ -53,7 +54,8 @@ document.getElementById("decrease").addEventListener("click", () => {
 addToCartBtn.addEventListener("click", () => {
   cart.push({
     ...selectedProduct,
-    quantity: parseInt(quantityInput.value)
+    quantity: parseInt(quantityInput.value),
+    amount: parseInt(quantityInput.value) * selectedProduct.price
   });
 
   // Update cart display
@@ -63,6 +65,7 @@ addToCartBtn.addEventListener("click", () => {
     li.textContent = `${item.name} x ${item.quantity}`;
     cartList.appendChild(li);
   });
+  console.log(cart);
 
   modal.classList.add("hidden");
 });

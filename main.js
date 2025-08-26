@@ -43,7 +43,7 @@ items.forEach(item => {
     if (item.dataset.rice === 'true') {
       riceControl.classList.remove("hidden");
     } else {
-      eggControl.classList.add("hidden");
+      riceControl.classList.add("hidden");
     }
   
     modal.classList.remove("hidden");

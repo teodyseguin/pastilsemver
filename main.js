@@ -16,6 +16,8 @@ const addToCartBtn = document.getElementById("add-to-cart");
 const cartList = document.getElementById("cart-items");
 const cartTitle = document.querySelector("#cart h3");
 const cartBox = document.getElementById("cart");
+const eggControl = document.querySelector(".egg-control");
+const riceControl = document.querySelector(".rice-control");
 
 let selectedProduct = {};
 let cart = [];
@@ -31,6 +33,19 @@ items.forEach(item => {
     modalImg.src = selectedProduct.img;
     modalTitle.textContent = selectedProduct.name;
     quantityInput.value = 1;
+
+    if (item.dataset.egg === 'true') {
+      eggControl.classList.remove("hidden");
+    } else {
+      eggControl.classList.add("hidden");
+    }
+
+    if (item.dataset.rice === 'true') {
+      riceControl.classList.remove("hidden");
+    } else {
+      eggControl.classList.add("hidden");
+    }
+  
     modal.classList.remove("hidden");
   });
 });
@@ -60,11 +75,26 @@ addToCartBtn.addEventListener("click", () => {
 
   // Update cart display
   cartList.innerHTML = "";
+  let total = 0;
+
   cart.forEach(item => {
     const li = document.createElement("li");
-    li.textContent = `${item.name} x ${item.quantity}`;
+    li.textContent = `${item.name} x ${item.quantity} = ₱${item.amount}`;
+    total += parseInt(item.amount);
     cartList.appendChild(li);
   });
+
+  const deliveryFee = 10;
+  total += deliveryFee;
+
+  const liDeliveryFee = document.createElement("li");
+  const liTotal = document.createElement("li");
+  liDeliveryFee.textContent = `Delivery Fee ₱${deliveryFee}`;
+  liTotal.textContent = `Total ₱${total}`;
+
+  cartList.appendChild(liDeliveryFee);
+  cartList.appendChild(liTotal);
+
   console.log(cart);
 
   modal.classList.add("hidden");

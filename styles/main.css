@@ -180,3 +180,13 @@ h2 {
 }
 
 .hidden { display: none; }
+
+.remove-cart-item {
+  font-weight: bold;
+  padding: 2px 8px;
+  margin: 0 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: none;
+}

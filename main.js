@@ -6,6 +6,33 @@ if ('serviceWorker' in navigator) {
     .then(() => console.log("Service Worker registered"));
 }
 
+function getGreeting() {
+  const hour = new Date().getHours();
+
+  if (hour < 12) {
+    return "Good morning :)";
+  } else if (hour < 18) {
+    return "Good afternoon :)";
+  } else {
+    return "Good evening :)";
+  }
+}
+
+function removeCartItem(element, item) {
+  // Remove the cart item from the DOM.
+  element.remove();
+  const itemToRemove = item.id;
+  const index = cart.findIndex(i => i.id === itemToRemove);
+
+  // Remove the item from the cart.
+  if (index !== -1) {
+    cart.splice(index, 1);
+  }
+
+  subtotal = subtotal - item.amount;
+  document.querySelector('.subtotal').textContent = `Subtotal ₱${subtotal}`;
+}
+
 const items = document.querySelectorAll(".item");
 const modal = document.getElementById("product-modal");
 const modalImg = document.getElementById("modal-img");
@@ -20,7 +47,8 @@ const eggControl = document.querySelector(".egg-control");
 const riceControl = document.querySelector(".rice-control");
 
 let selectedProduct = {};
-let cart = [];
+export let cart = [];
+let subtotal = 0;
 
 // Open modal when item is clicked
 items.forEach(item => {
@@ -59,6 +87,7 @@ closeModal.addEventListener("click", () => {
 document.getElementById("increase").addEventListener("click", () => {
   quantityInput.value = parseInt(quantityInput.value) + 1;
 });
+
 document.getElementById("decrease").addEventListener("click", () => {
   if (quantityInput.value > 1) {
     quantityInput.value = parseInt(quantityInput.value) - 1;
@@ -67,37 +96,40 @@ document.getElementById("decrease").addEventListener("click", () => {
 
 // Add to Cart
 addToCartBtn.addEventListener("click", () => {
+  const id = `item-${Math.floor(Math.random() * 900) + 100}`;
   cart.push({
     ...selectedProduct,
     quantity: parseInt(quantityInput.value),
-    amount: parseInt(quantityInput.value) * selectedProduct.price
+    amount: parseInt(quantityInput.value) * selectedProduct.price,
+    id
   });
 
   // Update cart display
   cartList.innerHTML = "";
-  let total = 0;
+  let subt = 0;
 
   cart.forEach(item => {
     const li = document.createElement("li");
+    li.setAttribute('id', item.id);
     li.textContent = `${item.name} x ${item.quantity} = ₱${item.amount}`;
-    total += parseInt(item.amount);
+    subt += parseInt(item.amount);
+    const removeItem = document.createElement("button");
+    removeItem.classList.add('remove-cart-item');
+    removeItem.textContent = 'x';
+    removeItem.addEventListener("click", () => { removeCartItem(li, item); });
+  
+    li.appendChild(removeItem);
     cartList.appendChild(li);
   });
 
-  const deliveryFee = 10;
-  total += deliveryFee;
+  const liSubTotal = document.createElement("li");
 
-  const liDeliveryFee = document.createElement("li");
-  const liTotal = document.createElement("li");
-  liDeliveryFee.textContent = `Delivery Fee ₱${deliveryFee}`;
-  liTotal.textContent = `Total ₱${total}`;
-
-  cartList.appendChild(liDeliveryFee);
-  cartList.appendChild(liTotal);
-
-  console.log(cart);
-
+  liSubTotal.textContent = `Subtotal ₱${subt}`;
+  liSubTotal.classList.add('subtotal');
+  cartList.appendChild(liSubTotal);
   modal.classList.add("hidden");
+
+  subtotal = subt;
 });
 
 cartTitle.addEventListener("click", () => {
@@ -108,18 +140,6 @@ cartTitle.addEventListener("click", () => {
   }
 });
 
-function getGreeting() {
-  const hour = new Date().getHours();
-
-  if (hour < 12) {
-    return "Good morning :)";
-  } else if (hour < 18) {
-    return "Good afternoon :)";
-  } else {
-    return "Good evening :)";
-  }
-}
-
 // Set greeting text
 const splash = document.getElementById("splash");
 splash.textContent = getGreeting();
@@ -128,21 +148,6 @@ splash.textContent = getGreeting();
 setTimeout(() => {
   splash.classList.add("hidden");
   document.getElementById("content").classList.remove("hidden");
-}, 2000);
+}, 5000);
 
-// Fetch from Drupal and display
-// fetchMenuItems().then(items => {
-//   const content = document.getElementById('menu-grid');
-//   items.forEach(item => {
-//     const div = document.createElement(`div`);
-//     div.classList.add(`item`, `item--${item.code}`);
-//     div.innerHTML = `
-//       <h3 class="item__title">${item.title}</h3>
-//       <div class="item__body">${item.body}</div>
-//       <div class="item__price">₱${item.price}</div>
-//     `;
-    
-//     div.addEventListener("click", () => addToCart(item));
-//     content.appendChild(div);
-//   });
-// });
+window.cart = cart;

@@ -1,4 +1,4 @@
-// Fetch data from Drupal backend
+// Fetch data from Drupal backend.
 import { fetchMenuItems } from './api/drupal.js';
 
 if ('serviceWorker' in navigator) {
@@ -50,7 +50,7 @@ let selectedProduct = {};
 export let cart = [];
 let subtotal = 0;
 
-// Open modal when item is clicked
+// Open modal when item is clicked.
 items.forEach(item => {
   item.addEventListener("click", () => {
     selectedProduct = {
@@ -80,12 +80,12 @@ items.forEach(item => {
   });
 });
 
-// Close modal
+// Close modal.
 closeModal.addEventListener("click", () => {
   modal.classList.add("hidden");
 });
 
-// Quantity controls
+// Quantity controls.
 document.getElementById("increase").addEventListener("click", () => {
   quantityInput.value = parseInt(quantityInput.value) + 1;
 });
@@ -96,7 +96,7 @@ document.getElementById("decrease").addEventListener("click", () => {
   }
 });
 
-// Add to Cart
+// Add to Cart.
 addToCartBtn.addEventListener("click", () => {
   const id = `item-${Math.floor(Math.random() * 900) + 100}`;
   const riceType = document.getElementById('rice-type');
@@ -120,7 +120,7 @@ addToCartBtn.addEventListener("click", () => {
     id
   });
 
-  // Update cart display
+  // Update cart display.
   cartList.innerHTML = "";
   let subt = 0;
 
@@ -158,14 +158,15 @@ cartTitle.addEventListener("click", () => {
   }
 });
 
-// Set greeting text
+// Set greeting text.
 const splash = document.getElementById("splash");
 splash.textContent = getGreeting();
 
-// Hide splash after 2 seconds
+// Hide splash after 2 seconds.
 setTimeout(() => {
   splash.classList.add("hidden");
   document.getElementById("content").classList.remove("hidden");
 }, 5000);
 
-window.cart = cart;
+// Enable this for debugging the cart.
+// window.cart = cart;

@@ -56,7 +56,9 @@ items.forEach(item => {
     selectedProduct = {
       name: item.dataset.product,
       img: item.dataset.img,
-      price: item.dataset.price
+      price: item.dataset.price,
+      rice: item.dataset.rice === 'true' ? true : false,
+      egg: item.dataset.egg === 'true' ? true : false
     };
     modalImg.src = selectedProduct.img;
     modalTitle.textContent = selectedProduct.name;
@@ -97,10 +99,24 @@ document.getElementById("decrease").addEventListener("click", () => {
 // Add to Cart
 addToCartBtn.addEventListener("click", () => {
   const id = `item-${Math.floor(Math.random() * 900) + 100}`;
+  const riceType = document.getElementById('rice-type');
+  const eggType = document.getElementById('egg-type');
+  let amount = parseInt(selectedProduct.price);
+
+  if (selectedProduct.rice) {
+    amount += parseInt(riceType.value);
+  }
+
+  if (selectedProduct.egg) {
+    amount += parseInt(eggType.value);
+  }
+
   cart.push({
     ...selectedProduct,
     quantity: parseInt(quantityInput.value),
-    amount: parseInt(quantityInput.value) * selectedProduct.price,
+    amount: parseInt(quantityInput.value) * amount,
+    riceType: riceType.options[riceType.selectedIndex].text,
+    eggType: eggType.options[eggType.selectedIndex].text,
     id
   });
 
@@ -110,8 +126,10 @@ addToCartBtn.addEventListener("click", () => {
 
   cart.forEach(item => {
     const li = document.createElement("li");
+    let name = item.name.replace('Regular Rice', item.riceType);
+    name = name.replace('Egg', `${item.eggType} Egg`);
     li.setAttribute('id', item.id);
-    li.textContent = `${item.name} x ${item.quantity} = ₱${item.amount}`;
+    li.textContent = `${name} x ${item.quantity} = ₱${item.amount}`;
     subt += parseInt(item.amount);
     const removeItem = document.createElement("button");
     removeItem.classList.add('remove-cart-item');

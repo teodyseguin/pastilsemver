@@ -118,7 +118,7 @@ addToCartBtn.addEventListener("click", () => {
     amount += parseInt(riceType.value);
   }
 
-  if (selectedProduct.egg) {
+  if (selectedProduct.egg && selectedProduct.name !== 'Extra Egg') {
     amount += parseInt(eggType.value);
   }
 

@@ -161,14 +161,6 @@ addToCartBtn.addEventListener("click", () => {
   subtotal = subt;
 });
 
-cartTitle.addEventListener("click", () => {
-  if (cartBox.style.height === 'auto') {
-    cartBox.style.removeProperty('height');
-  } else {
-    cartBox.style.height = 'auto';
-  }
-});
-
 // Set greeting text.
 const splash = document.getElementById("splash");
 splash.textContent = getGreeting();

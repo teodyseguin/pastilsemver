@@ -39,10 +39,12 @@ const modalImg = document.getElementById("modal-img");
 const modalTitle = document.getElementById("modal-title");
 const quantityInput = document.getElementById("quantity");
 const closeModal = document.getElementById("close-modal");
+const closeCartModal = document.getElementById("close-cart-modal");
 const addToCartBtn = document.getElementById("add-to-cart");
 const cartList = document.getElementById("cart-items");
 const cartTitle = document.querySelector("#cart h3");
-const cartBox = document.getElementById("cart");
+const cartModal = document.getElementById("cart");
+const basketIcon = document.getElementById("basket-icon");
 const eggControl = document.querySelector(".egg-control");
 const riceControl = document.querySelector(".rice-control");
 
@@ -85,6 +87,11 @@ closeModal.addEventListener("click", () => {
   modal.classList.add("hidden");
 });
 
+// Close cart modal.
+closeCartModal.addEventListener("click", () => {
+  cartModal.classList.add("hidden");
+});
+
 // Quantity controls.
 document.getElementById("increase").addEventListener("click", () => {
   quantityInput.value = parseInt(quantityInput.value) + 1;
@@ -94,6 +101,10 @@ document.getElementById("decrease").addEventListener("click", () => {
   if (quantityInput.value > 1) {
     quantityInput.value = parseInt(quantityInput.value) - 1;
   }
+});
+
+basketIcon.addEventListener("click", () => {
+  cartModal.classList.remove("hidden");
 });
 
 // Add to Cart.

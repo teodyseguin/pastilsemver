@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout</title>
+  <meta name="color-scheme" content="light dark">
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #ef4444;
+      --primary-hover: #dc2626;
+      --ring: rgba(239, 68, 68, 0.3);
+      --border: #e5e7eb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0d12;
+        --card: #12151c;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --primary: #f87171;
+        --primary-hover: #ef4444;
+        --ring: rgba(248, 113, 113, 0.25);
+        --border: #1f2937;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    header {
+      padding: 16px 0 8px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      letter-spacing: 0.2px;
+    }
+    p.sub {
+      margin: 4px 0 0 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    form {
+      margin-top: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.04);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 720px) {
+      .grid.two {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+    input, textarea {
+      width: 100%;
+      appearance: none;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color .15s ease, box-shadow .15s ease;
+    }
+    textarea { min-height: 96px; resize: vertical; }
+    input:focus, textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--ring);
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: 0;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .04s ease, background .15s ease, opacity .2s ease;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--primary-hover); }
+
+    .helper {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .required {
+      color: var(--primary);
+      margin-left: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Checkout</h1>
+      <p class="sub">Please provide your details to complete the order.</p>
+    </header>
+
+    <form id="checkout-form" novalidate>
+      <div class="grid">
+        <div class="field">
+          <label for="fullName">Full name<span class="required">*</span></label>
+          <input id="fullName" name="fullName" type="text" placeholder="e.g., Juan Dela Cruz" required autocomplete="name" />
+        </div>
+
+        <div class="field">
+          <label for="address">Complete address<span class="required">*</span></label>
+          <textarea id="address" name="address" placeholder="House/Unit, Street, Barangay, City/Municipality, Province, ZIP" required autocomplete="street-address"></textarea>
+          <div class="helper">Include landmarks if possible for faster delivery.</div>
+        </div>
+
+        <div class="grid two">
+          <div class="field">
+            <label for="phone">Cellphone number<span class="required">*</span></label>
+            <input id="phone" name="phone" type="tel" placeholder="09XXXXXXXXX" required inputmode="tel" pattern="^(\+?63|0)9\d{9}$" autocomplete="tel" />
+            <div class="helper">Format: 09XXXXXXXXX or +639XXXXXXXXX</div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address<span class="required">*</span></label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="messenger">Facebook Messenger username</label>
+          <input id="messenger" name="messenger" type="text" placeholder="e.g., teody.seguin" autocomplete="username" />
+          <div class="helper">Optional. We'll use this to contact you with updates.</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn" id="backBtn" onclick="history.back()">Back</button>
+        <button type="submit" class="btn btn-primary">Review Order</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Utility: trim + simple validation report
+    function showErrors(form) {
+      const firstInvalid = form.querySelector(':invalid');
+      if (firstInvalid) {
+        firstInvalid.focus();
+        firstInvalid.reportValidity();
+        return true;
+      }
+      return false;
+    }
+
+    document.getElementById('checkout-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Client-side validation
+      if (showErrors(this)) return;
+
+      const orderData = {
+        fullName: document.getElementById('fullName').value.trim(),
+        address: document.getElementById('address').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        messenger: document.getElementById('messenger').value.trim(),
+        cart: JSON.parse(localStorage.getItem('cart') || '[]'),
+        createdAt: new Date().toISOString()
+      };
+
+      // Persist temporarily for the payment page
+      localStorage.setItem('orderData', JSON.stringify(orderData));
+
+      // Navigate to payment page (adjust if your file is elsewhere)
+      window.location.href = 'review.html';
+    });
+  </script>
+</body>
+</html>

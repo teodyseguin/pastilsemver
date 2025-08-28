@@ -155,7 +155,7 @@ h2 {
   font-size: 14px;
 }
 .option {
-  padding: 5px;
+  padding: 10px;
   margin-bottom: 15px;
 }
 
@@ -206,4 +206,8 @@ h2 {
   padding: 8px;
   color: white;
   background-color: red;
+}
+
+#add-to-cart {
+  padding: 10px;
 }

@@ -11,7 +11,7 @@ const ASSETS = [
   "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-regular-with-regular-rice.png",
   "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-spicy-with-regular-rice.png",
   "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-with-regular-rice.png",
-  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-with-regular-rice-plus-egg.png",
+  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-with-regular-rice-plus-egg.webp",
   "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-10-pcs.png",
   "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-sisig.png"
 ];

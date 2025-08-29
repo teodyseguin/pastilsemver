@@ -181,14 +181,14 @@ h2 {
 }
 
 #basket-icon {
-  width: 50px;
+  width: 10%;
   cursor: pointer;
 }
 
 .nav {
-  position: relative;
-  padding: 20px 20px 0;
-  text-align: center;
+  position: fixed;
+  top: 24px;
+  padding: 0 18px;
 }
 
 #checkout {
@@ -205,6 +205,7 @@ h2 {
   padding: 8px;
   color: white;
   background-color: red;
+  display: none;
 }
 
 #add-to-cart {

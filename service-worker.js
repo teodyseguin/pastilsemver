@@ -6,14 +6,14 @@ const ASSETS = [
   "./main.js",
   "./manifest.json",
   "./assets/logo.png",
-  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-only-regular.png",
-  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-only-spicy.png",
-  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-regular-with-regular-rice.png",
-  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-spicy-with-regular-rice.png",
-  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-with-regular-rice.png",
+  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-only-regular.webp",
+  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-only-spicy.webp",
+  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-regular-with-regular-rice.webp",
+  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-spicy-with-regular-rice.webp",
+  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-with-regular-rice.webp",
   "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-with-regular-rice-plus-egg.webp",
-  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-10-pcs.png",
-  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-sisig.png"
+  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-lumpia-10-pcs.webp",
+  "https://dev-ding-and-mamitas.pantheonsite.io/sites/default/files/2025-08/chicken-pastil-sisig.webp"
 ];
 
 // Install: pre-cache essential assets
